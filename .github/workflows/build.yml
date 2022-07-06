@@ -35,4 +35,4 @@ jobs:
         run: cd blog-gen && cp -r /tmp/stuff in && npm start
 
       - name: Listing files (for debugging)
-        run: ls out
+        run: cd blog-gen && ls out
