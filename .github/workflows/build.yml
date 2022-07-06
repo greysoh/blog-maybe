@@ -1,5 +1,6 @@
 name: Build repo
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,19 +12,27 @@ jobs:
       
       - name: Installing git
         run: sudo apt-get install -y git
+
       - name: Making input directory
         run: mkdir /tmp/stuff
+        
       - name: Copying files
         run: cp -r . /tmp/stuff
+
       - name: Deleting files
         run: rm -rf *
+
       - name: Removing some extra files
         run: rm -rf /tmp/stuff/.github
+
       - name: Downloading blogging software...
         run: git clone https://github.com/greysoh/blog-gen
+
       - name: Installing blogging software...
         run: cd blog-gen && npm install
+
       - name: Running blogging software...
         run: cp -r /tmp/stuff in && npm start
+
       - name: Listing files (for debugging)
-      - run: ls out
+        run: ls out
