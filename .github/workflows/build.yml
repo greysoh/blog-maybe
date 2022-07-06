@@ -32,7 +32,7 @@ jobs:
         run: cd blog-gen && npm install
 
       - name: Running blogging software...
-        run: cp -r /tmp/stuff in && npm start
+        run: cd blog-gen && cp -r /tmp/stuff in && npm start
 
       - name: Listing files (for debugging)
         run: ls out
