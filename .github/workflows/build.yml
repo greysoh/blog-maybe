@@ -23,7 +23,7 @@ jobs:
         run: rm -rf *
 
       - name: Removing some extra files
-        run: rm -rf /tmp/stuff/.github
+        run: rm -rf /tmp/stuff/.git*
 
       - name: Downloading blogging software...
         run: git clone https://github.com/greysoh/blog-gen
