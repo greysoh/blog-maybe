@@ -23,9 +23,17 @@ html {
 }
 
 .titlebar .menuopts .menuopt {
-    color: #e5c07b;
-
     font-weight: bold;
+
+    color: #e5c07b;
+}
+
+a {
+    color: #e5c07b;
+}
+
+a:visited {
+    color: #61afef;
 }
 
 .titlebar {
