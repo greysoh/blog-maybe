@@ -5,29 +5,39 @@
 html {
     background-color: #3e4654;
     color: #abb2bf;
+
     font-family: 'Fira Code', monospace;
 }
 
 .titlebar .name {
     color: #98c379;
+
     font-weight: bold;
 }
 
 .titlebar .menuopts {
-    position: fixed;
     top: 8px;
     right: 12px;
+
+    position: fixed;
 }
 
 .titlebar .menuopts .menuopt {
     color: #e5c07b;
+
     font-weight: bold;
 }
 
 .titlebar {
-    position: fixed;
+    background-color: #3e4654;
+
     top: 0;
     left: 0;
+
+    width: 100%;
     padding: 8px;
+
+    position: fixed;
+
     user-select: none;
 }

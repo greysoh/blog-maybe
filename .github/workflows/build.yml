@@ -48,7 +48,10 @@ jobs:
         run: git config --global user.name "greysoh" && git config --global user.email "$EMAIL"
       
       - name: Commiting changes...
-        run: cd pages && git add . && git commit -m "Sync changes"
+        shell: bash
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: cd pages && git add . && git commit -m "$COMMIT_MESSAGE"
 
       - name: Pushing changes...
         uses: cpina/github-action-push-to-another-repository@main
