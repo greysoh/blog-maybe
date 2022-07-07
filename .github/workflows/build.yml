@@ -35,7 +35,7 @@ jobs:
         run: git clone https://github.com/greysoh/greysoh.github.io.git pages
       
       - name: Deleting existing files...
-        run: rm -rf pages/*
+        run: mv pages/CNAME . && rm -rf pages/* && mv CNAME pages/
       
       - name: Copying new files...
         run: cp -r blog-gen/out/* pages/
