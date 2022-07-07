@@ -21,18 +21,20 @@ jobs:
 
       - name: Deleting files
         run: rm -rf *
-
-      - name: Removing some extra files
         run: rm -rf /tmp/stuff/.git*
 
       - name: Downloading blogging software...
         run: git clone https://github.com/greysoh/blog-gen
 
       - name: Installing blogging software...
-        run: cd blog-gen && npm install
+        run: cd blog-gen
+        run: npm install
+        run: cp -r /tmp/stuff
 
       - name: Running blogging software...
-        run: cd blog-gen && cp -r /tmp/stuff in && npm start
+        run: cd blog-gen 
+        run: npm start
 
       - name: Listing files (for debugging)
-        run: cd blog-gen && ls out
+        run: cd blog-gen
+        run: ls out
