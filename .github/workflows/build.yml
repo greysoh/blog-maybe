@@ -54,10 +54,9 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
-          EMAIL: ${{ secrets.EMAIL }}
         with:
           source-directory: 'pages'
           destination-github-username: 'greysoh'
           destination-repository-name: 'greysoh.github.io'
-          user-email: $EMAIL
+          user-email: ${{ secrets.EMAIL }}
           target-branch: main
