@@ -9,9 +9,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      
-      - name: Installing git
-        run: sudo apt-get install -y git
 
       - name: Making input directory
         run: mkdir /tmp/stuff
@@ -23,7 +20,7 @@ jobs:
         run: rm -rf * && rm -rf /tmp/stuff/.git*
 
       - name: Downloading blogging software...
-        run: git clone https://github.com/greysoh/blog-gen
+        run: git clone https://github.com/greysoh/blog-gen.git
 
       - name: Installing blogging software...
         run: cd blog-gen && npm install
@@ -33,3 +30,29 @@ jobs:
 
       - name: Listing files (for debugging)
         run: cd blog-gen && ls out
+
+      - name: Downloading blog...
+        run: git clone https://github.com/greysoh/greysoh.github.io.git pages
+      
+      - name: Deleting existing files...
+        run: rm -rf pages/*
+      
+      - name: Copying new files...
+        run: cp -r blog-gen/out/* pages/
+      
+      - name: Setting config...
+        shell: bash
+        env: 
+          EMAIL: ${{ secrets.EMAIL }}
+          PASS: ${{ secrets.TOKEN }}
+        run: git config --global user.name "greysoh" && git config --global user.email "$EMAIL"
+      
+      - name: Commiting changes...
+        run: cd pages && git add . && git commit -m "Sync changes"
+      
+      - name: Pushing changes...
+        shell: bash
+        env: 
+          EMAIL: ${{ secrets.EMAIL }}
+          PASS: ${{ secrets.TOKEN }}
+        run: git push https://greysoh:$PASS@github.com/greysoh/greysoh.github.io.git
