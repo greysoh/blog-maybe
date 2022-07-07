@@ -49,10 +49,15 @@ jobs:
       
       - name: Commiting changes...
         run: cd pages && git add . && git commit -m "Sync changes"
-      
-      - name: Pushing changes...
-        shell: bash
-        env: 
+
+      - name: Pusing changes...
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
           EMAIL: ${{ secrets.EMAIL }}
-          PASS: ${{ secrets.TOKEN }}
-        run: git push https://greysoh:$PASS@github.com/greysoh/greysoh.github.io.git
+        with:
+          source-directory: 'pages'
+          destination-github-username: 'greysoh'
+          destination-repository-name: 'greysoh.github.io'
+          user-email: $EMAIL
+          target-branch: main
