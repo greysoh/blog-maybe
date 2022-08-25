@@ -3,8 +3,8 @@ I'll be adding to this when I dig more into the logs.
   
 I found these log messages, while developing my custom launcher:
 ```
-[21:05:36] [Client thread/INFO]: [LC Ichor] Disabling ReplayMod because there is no valid link.
-[21:05:36] [Client thread/INFO]: [LC Ichor] Disabling NEU because there is no valid link.
+[Client thread/INFO]: [LC Ichor] Disabling ReplayMod because there is no valid link.
+[Client thread/INFO]: [LC Ichor] Disabling NEU because there is no valid link.
 ```
 Could Replay Mod be in the source code still?  
   
